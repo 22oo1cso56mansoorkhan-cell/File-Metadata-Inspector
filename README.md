@@ -180,24 +180,6 @@ file-metadata-inspector/
 - Producer
 - Creation Date
 
-## 📸 Screenshots
-
-### Upload Interface
-![Upload Interface](https://via.placeholder.com/600x300/6c5ce7/ffffff?text=Upload+Interface)
-
-### Basic File Information
-![Basic Info](https://via.placeholder.com/600x300/6c5ce7/ffffff?text=Basic+File+Info)
-
-### Image Details
-![Image Details](https://via.placeholder.com/600x300/6c5ce7/ffffff?text=Image+Details)
-
-### EXIF Data
-![EXIF Data](https://via.placeholder.com/600x300/6c5ce7/ffffff?text=EXIF+Data)
-
-## 🌐 Live Demo
-
-[View Live Demo](https://your-demo-link.com) *(Optional - Add your deployment link if available)*
-
 ## 🌍 Browser Support
 
 | Browser | Version | Support |
