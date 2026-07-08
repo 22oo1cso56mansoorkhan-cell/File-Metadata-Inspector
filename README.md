@@ -2,7 +2,6 @@
 
 A powerful web application that extracts and displays comprehensive metadata from uploaded images and PDF files using the Browser File API and EXIF.js library.
 
-![File Metadata Inspector](https://via.placeholder.com/800x400/6c5ce7/ffffff?text=File+Metadata+Inspector)
 
 ## 📋 Table of Contents
 - [Features](#-features)
