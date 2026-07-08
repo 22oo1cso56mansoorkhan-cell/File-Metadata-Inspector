@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Metadata Inspector</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>
+                <i class="fas fa-file-alt" style="color: #6c5ce7;"></i>
+                File Metadata Inspector
+            </h1>
+            <p class="subhead">Upload an image or PDF to extract and display detailed metadata</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Panel: Upload & File Info -->
+            <div class="upload-panel">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: #6c5ce7;"></i>
+                        <p><strong>Drag & drop</strong> a file here</p>
+                        <p class="upload-hint">or click to browse (supports Images &amp; PDFs)</p>
+                        <input type="file" id="fileUpload" accept="image/*,.pdf" />
+                    </div>
+                </div>
+
+                <div class="file-info-section" id="fileInfoSection" style="display: none;">
+                    <h3><i class="fas fa-file"></i> File Information</h3>
+                    <div class="file-info-grid">
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-tag"></i> File Name</span>
+                            <span class="info-value" id="fileName">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-weight"></i> File Size</span>
+                            <span class="info-value" id="fileSize">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-code"></i> MIME Type</span>
+                            <span class="info-value" id="fileType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-clock"></i> Last Modified</span>
+                            <span class="info-value" id="fileModified">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supported-section">
+                    <h4><i class="fas fa-check-circle" style="color: #00b894;"></i> Supported File Types</h4>
+                    <div class="supported-badges">
+                        <span class="badge"><i class="fas fa-image"></i> JPEG</span>
+                        <span class="badge"><i class="fas fa-image"></i> PNG</span>
+                        <span class="badge"><i class="fas fa-image"></i> GIF</span>
+                        <span class="badge"><i class="fas fa-image"></i> BMP</span>
+                        <span class="badge"><i class="fas fa-image"></i> WebP</span>
+                        <span class="badge"><i class="fas fa-file-pdf"></i> PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Metadata Display -->
+            <div class="metadata-panel">
+                <div class="metadata-tabs">
+                    <button class="tab-btn active" data-tab="basic">
+                        <i class="fas fa-info-circle"></i> Basic Info
+                    </button>
+                    <button class="tab-btn" data-tab="image">
+                        <i class="fas fa-image"></i> Image Details
+                    </button>
+                    <button class="tab-btn" data-tab="exif">
+                        <i class="fas fa-camera"></i> EXIF Data
+                    </button>
+                    <button class="tab-btn" data-tab="pdf">
+                        <i class="fas fa-file-pdf"></i> PDF Info
+                    </button>
+                </div>
+
+                <div class="metadata-content">
+                    <!-- Basic Info Tab -->
+                    <div class="tab-content active" id="basicTab">
+                        <div class="empty-state">
+                            <i class="fas fa-upload" style="font-size: 3rem; color: #b2bec3;"></i>
+                            <p>Upload a file to see metadata</p>
+                            <p class="empty-hint">Supported formats: Images (JPEG, PNG, GIF, BMP, WebP) and PDF</p>
+                        </div>
+                        <div class="metadata-grid" id="basicMetadata" style="display: none;"></div>
+                    </div>
+
+                    <!-- Image Details Tab -->
+                    <div class="tab-content" id="imageTab">
+                        <div class="empty-state">
+                            <i class="fas fa-image" style="font-size: 3rem; color: #b2bec3;"></i>
+                            <p>Upload an image to see dimensions</p>
+                        </div>
+                        <div class="metadata-grid" id="imageMetadata" style="display: none;"></div>
+                    </div>
+
+                    <!-- EXIF Data Tab -->
+                    <div class="tab-content" id="exifTab">
+                        <div class="empty-state">
+                            <i class="fas fa-camera" style="font-size: 3rem; color: #b2bec3;"></i>
+                            <p>Upload an image with EXIF data</p>
+                            <p class="empty-hint">EXIF data includes camera model, GPS, date taken, etc.</p>
+                        </div>
+                        <div class="metadata-grid" id="exifMetadata" style="display: none;"></div>
+                    </div>
+
+                    <!-- PDF Info Tab -->
+                    <div class="tab-content" id="pdfTab">
+                        <div class="empty-state">
+                            <i class="fas fa-file-pdf" style="font-size: 3rem; color: #b2bec3;"></i>
+                            <p>Upload a PDF to see document info</p>
+                        </div>
+                        <div class="metadata-grid" id="pdfMetadata" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
